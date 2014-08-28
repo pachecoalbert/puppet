@@ -52,7 +52,7 @@ class apache (
   $max_keepalive_requests = $apache::params::max_keepalive_requests,
   $logroot              = $::apache::params::logroot,
   $log_level            = $::apache::params::log_level,
-  $log_formats 		= { vhost_common => '%v %h %l %u %t \"%r\" %>s %b' },
+  $log_formats          = {},
   $ports_file           = $::apache::params::ports_file,
   $apache_version       = $::apache::version::default,
   $server_tokens        = 'OS',
@@ -235,7 +235,7 @@ class apache (
         $error_log            = 'error_log'
         $error_documents_path = '/var/www/error'
         $scriptalias          = '/var/www/cgi-bin'
-        #$access_log_file      = 'access_log'
+        $access_log_file      = 'access_log'
       }
       'redhat': {
         $docroot              = '/var/www/html'

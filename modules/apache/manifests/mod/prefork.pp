@@ -58,6 +58,23 @@ class apache::mod::prefork (
         }
       }
     }
+    'linux': {
+      if $apache_version >= 2.4 {
+        ::apache::mpm{ 'prefork':
+          apache_version => $apache_version,
+        }
+      }
+      else {
+        file_line { '/etc/sysconfig/httpd prefork enable':
+          ensure  => present,
+          path    => '/etc/sysconfig/httpd',
+          line    => '#HTTPD=/usr/sbin/httpd.worker',
+          match   => '#?HTTPD=/usr/sbin/httpd.worker',
+          require => Package['httpd'],
+          notify  => Service['httpd'],
+        }
+      }
+    }
     'debian', 'freebsd' : {
       ::apache::mpm{ 'prefork':
         apache_version => $apache_version,

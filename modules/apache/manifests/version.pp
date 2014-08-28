@@ -18,6 +18,13 @@ class apache::version {
         $default = 2.2
       }
     }
+    'Linux': {
+      if ($::operatingsystem == 'Fedora' and $distrelease >= 18) or ($::operatingsystem != 'Fedora' and $distrelease >= 7) {
+        $default = 2.4
+      } else {
+        $default = 2.2
+      }
+    }
     'Debian': {
       if $::operatingsystem == 'Ubuntu' and $::operatingsystemrelease >= 13.10 {
         $default = 2.4
