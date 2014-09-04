@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-aws-poc
-=======
-test
-test 2
-=======
-puppet
-======
+AWS bootsrap POC.
 
-puppet
->>>>>>> 05ea656b5d6d53bd45ee11a3f11b0a3744dff046
+The goal is to familurize yourself with DevOps tools and processes, git, puppet, python, aws
+
+
